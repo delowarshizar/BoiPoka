@@ -2,8 +2,8 @@ import React from "react";
 import BannerImage from "../../assets/pngwing 1.png";
 const Banner = () => {
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="hero bg-base-200 h-\[554px\]">
+      <div className="hero-content flex-col lg:flex-row-reverse items-center">
         <img src={BannerImage} />
         <div>
           <h1 className="text-5xl font-bold">

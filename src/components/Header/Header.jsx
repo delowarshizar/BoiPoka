@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Header = () => {
   const links = (
     <>
-      <li className="mx-3">Home</li>
+      <Link to="/"><li className="mx-3">Home</li></Link>
       <li className="mx-3">List Books</li>
       <li className="mx-3">Pages to read</li>
+      <Link to="/about"><li className="mx-3">About</li></Link>
+
     </>
   );
   return (
