@@ -21,4 +21,4 @@ const SetDataToLocalStorage = (id) => {
   toast.success("Book marked as read!");
 };
 
-export { SetDataToLocalStorage };
+export { SetDataToLocalStorage, GetDataFromLocalStorage };
