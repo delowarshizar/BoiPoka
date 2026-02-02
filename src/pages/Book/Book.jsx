@@ -10,21 +10,26 @@ const Book = ({ book }) => {
           <img className="h-42 " src={image} alt="Book Cover" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
-            {bookName}
-            <div className="badge badge-secondary">
-              {tags.map((tag) => (
-                <span key={tag} className="mr-1">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </h2>
-          <p>by : {author}</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">{category}</div>
-            <div className="badge badge-outline">
-              {rating} <FaStarHalfStroke />
+          <div className=" flex gap-3">
+            {tags.map((tag) => (
+              <div
+                className="bg-gray-100 rounded-lg font-medium text-md text-green-500 px-4 py-1 "
+                key={tag}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+          <h2 className="font-bold text-2xl my-2">{bookName}</h2>
+          <p className="font-medium text-lg text-[#131313] opacity-80">
+            by : {author}
+          </p>
+        <div className="border-t-2 border-dashed border-gray-300"></div>
+          <div className=" text-[#131313] opacity-80 flex justify-between font-medium text-lg ">
+            <div>{category}</div>
+            <div className=" flex gap-2 items-center ">
+              <div>{rating}</div>
+              <FaStarHalfStroke />
             </div>
           </div>
         </div>
