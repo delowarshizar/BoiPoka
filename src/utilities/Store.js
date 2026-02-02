@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const GetDataFromLocalStorage = () => {
   const data = localStorage.getItem("booksId");
   if (data) {
@@ -10,11 +12,13 @@ const GetDataFromLocalStorage = () => {
 const SetDataToLocalStorage = (id) => {
   const existingData = GetDataFromLocalStorage();
   if (existingData.includes(id)) {
-    alert("Book already marked as read");
+    toast.error("Book already marked as read!");
     return;
   }
   existingData.push(id);
   const dataString = JSON.stringify(existingData);
   localStorage.setItem("booksId", dataString);
+  toast.success("Book marked as read!");
 };
+
 export { SetDataToLocalStorage };
