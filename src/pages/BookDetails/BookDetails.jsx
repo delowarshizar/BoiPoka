@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
-import { SetDataToLocalStorage } from "../../utilities/Store";
+import { SetDataToLocalStorage, SetDataToLocalStorageWish } from "../../utilities/Store";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -23,12 +23,15 @@ const BookDetails = () => {
   const handleMarksAsRead = (id) => {
     SetDataToLocalStorage(id);
   };
+  const handleWishlist = (id) => {
+    SetDataToLocalStorageWish(id);
+  };
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10 ">
       <div className="bg-gray-100 rounded-lg">
         <img className="p-18 h-161 w-full " src={image} alt={bookName} />
       </div>
-      <div>
+      <div className="px-4">
         <h1 className="text-4xl font-bold ">{bookName}</h1>
         <h3 className="font-medium text-xl mt-4 mb-5 text-gray-500">
           by : {author}
@@ -62,12 +65,16 @@ const BookDetails = () => {
           Year of Publishing:
           <span className="font-bold ml-15 ">{yearOfPublishing}</span>
         </p>
-        <p className="mt-3">Rating:  <span className="font-bold ml-35">{rating}</span> </p>
+        <p className="mt-3">
+          Rating: <span className="font-bold ml-35">{rating}</span>{" "}
+        </p>
         <div className="mt-8">
           <button onClick={() => handleMarksAsRead(id)} className="btn mr-4">
             Mark as Read
           </button>
-          <button className="btn btn-info">Add to Wishlist</button>
+          <button onClick={() => handleWishlist(id)} className="btn text-amber-50 bg-green-400 border-green-400 hover:bg-green-500">
+            Add to Wishlist
+          </button>
         </div>
       </div>
     </div>

@@ -21,4 +21,29 @@ const SetDataToLocalStorage = (id) => {
   toast.success("Book marked as read!");
 };
 
-export { SetDataToLocalStorage, GetDataFromLocalStorage };
+const GetDataFromLocalStorageWish = () => {
+  const data = localStorage.getItem("wishlistBooksId");
+  if (data) {
+    const parsedData = JSON.parse(data);
+    return parsedData;
+  } else {
+    return [];
+  }
+};
+const SetDataToLocalStorageWish = (id) => {
+  const existingData = GetDataFromLocalStorageWish();
+  if (existingData.includes(id)) {
+    toast.error("Book already marked as wishlist!");
+    return;
+  }
+  existingData.push(id);
+  const dataString = JSON.stringify(existingData);
+  localStorage.setItem("wishlistBooksId", dataString);
+  toast.success("Book added to wishlist!");
+};
+export {
+  SetDataToLocalStorage,
+  GetDataFromLocalStorage,
+  GetDataFromLocalStorageWish,
+  SetDataToLocalStorageWish,
+};
